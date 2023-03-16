@@ -3,13 +3,16 @@ import { Card, Col, Container,Row} from "react-bootstrap";
 import TaskFormComponent from "./components/task-form-component";
 import TaskTabGroup from "./components/task-tab-group";
 
+
 interface Props{
+    
     
 }
 
 export default class HomeView extends React.Component<Props >{
 
     render(){
+
 
         return (
             <Container className="vh-100">                    
