@@ -13,13 +13,9 @@ code {
 }
 
 .fundoImage{
-  background-image: url(https://img.freepik.com/vetores-gratis/fundo-de-vetor-de-onda-gradiente-abstrato-azul_53876-111548.jpg?w=2000);
-  background-repeat: no-repeat;
-  background-position: 30% 45%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
+  background-image: url(https://img.freepik.com/fotos-gratis/fundo-azul-do-gradiente-de-luxo-abstrato-liso-azul-escuro-com-vinheta-preta-studio-banner_1258-72075.jpg);
   background-size: cover;
-  -o-background-size: cover;
+  background-position: center;
 
 }
 
@@ -31,4 +27,10 @@ code {
 .itemCenter{
   align-items: center;
   text-align: center;
+}
+
+.logoImg{
+  max-width: 100%;
+  height: auto;
+
 }

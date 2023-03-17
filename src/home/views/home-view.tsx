@@ -26,7 +26,6 @@ export default class HomeView extends React.Component<Props >{
                                         <TaskFormComponent />                                    
                                         <TaskTabGroup 
                                             firstTabDescription="Novas Tarefas" 
-                                            secondTabDescription="Tarefas Concluídas"
                                         />                                    
                                     </Card.Body>
                                 </Card>

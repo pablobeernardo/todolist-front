@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ProfileController from './Profile/controllers/profile-controller';
+import LoginController from './Login/Controllers/login-controller';
+import HomeController from './home/controllers/home-controller';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ProfileController />
+    <HomeController />
   </React.StrictMode>
 );
 
