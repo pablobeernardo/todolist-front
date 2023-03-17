@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-export default function ModalsTask() {
+export default function ModalEdit() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -11,14 +11,14 @@ export default function ModalsTask() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Nova Tarefa
+      <Button variant="primary" className="btn-sm" onClick={handleShow}>
+        Editar
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         
         <Modal.Header closeButton>
-          <Modal.Title>Nova Tarefa</Modal.Title>
+          <Modal.Title>Editar Tarefa</Modal.Title>
         </Modal.Header>
         
         <Modal.Body>

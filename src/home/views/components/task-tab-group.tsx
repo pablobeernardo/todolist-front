@@ -1,5 +1,6 @@
 import React from "react";
-import { ListGroup, Row, Col, FormCheck, Tab, Tabs } from "react-bootstrap";
+import { ListGroup, Row, Col, FormCheck, Tab, Tabs, Button } from "react-bootstrap";
+import ModalEdit from "../modalEdit";
 
 interface Props{
     firstTabDescription: string;
@@ -14,11 +15,14 @@ export default class TaskTabGroup extends React.Component<Props>{
                     <ListGroup>
                         <ListGroup.Item action variant='secondary' className="mb-2">
                             <Row>
-                                <Col sm='1'>
+                                <Col className="mt-1" sm='1'>
                                     <FormCheck></FormCheck>                                        
                                 </Col>                     
-                                <Col>
-                                    <span>No style</span>
+                                <Col className="mt-1">
+                                    <span>Tarefa 1</span>
+                                </Col>
+                                <Col className="itemRight" >
+                                    <ModalEdit />
                                 </Col>
                             </Row>
                         </ListGroup.Item>                                    

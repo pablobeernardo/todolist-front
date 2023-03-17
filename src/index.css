@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.fundoImage{
+  background-image: url(https://img.freepik.com/vetores-gratis/fundo-de-vetor-de-onda-gradiente-abstrato-azul_53876-111548.jpg?w=2000);
+  background-repeat: no-repeat;
+  background-position: 30% 45%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+}
+
+.itemRight{
+  align-items: end;
+  text-align: end;
+}
+
+.itemCenter{
+  align-items: center;
+  text-align: center;
+}
