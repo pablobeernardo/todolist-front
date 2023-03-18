@@ -5,13 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginController from './Login/Controllers/login-controller';
 import HomeController from './home/controllers/home-controller';
+import HomeProfile from './Profile/views/profile-views';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <HomeController />
+    <HomeProfile />
   </React.StrictMode>
 );
 
