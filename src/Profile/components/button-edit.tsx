@@ -28,12 +28,18 @@ export default function ButtonEdit() {
 
       <Modal show={showModal} onHide={handleModalClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Editar Tarefa</Modal.Title>
+          <Modal.Title>Editar Perfil</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Digite sua nova tarefa</Form.Label>
+                <Form.Label>Nome</Form.Label>
+                <Form.Control
+                  autoFocus
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Data de Nascimento</Form.Label>
                 <Form.Control
                   autoFocus
                 />

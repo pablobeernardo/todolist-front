@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
-import Avatar from './avatar-button';
+import Avatar from '../../../home/views/components/avatar-button';
 
 
 export default function NavApp() {

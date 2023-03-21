@@ -13,10 +13,11 @@ import {
 }
 from 'mdb-react-ui-kit';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import NavApp from '../../home/views/components/navbar';
+import NavApp from '../../shared/models/views/navbar';
 import TaskFormComponent from '../../home/views/components/task-form-component';
 import TaskTabGroup from '../../home/views/components/task-tab-group';
 import ButtonGmail from '../components/button-gmail';
+import { ContainerFull, ContainerContent } from '../../shared/models/views/style';
 
 export default function LoginView() {
     const [justifyActive, setJustifyActive] = useState('tab1');;
@@ -31,9 +32,10 @@ export default function LoginView() {
 
 
   return (
-        <div className="fundoImage">
-                <Container className="vh-100">                    
-                    <Row className="d-flex justify-content-center align-items-center h-100">
+            <ContainerFull className="vh-100">
+                <NavApp/> 
+                <ContainerContent >
+                    <Row className="d-flex justify-content-center align-items-center">
                         <Col>
                             <Card>
                                 <Card.Body className="py-5 px-5">
@@ -57,8 +59,9 @@ export default function LoginView() {
                             </Card>
                         </Col>                    
                     </Row>
-                </Container>
-        </div>   
+                </ContainerContent>
+            </ContainerFull>
+          
   );
 }
 
