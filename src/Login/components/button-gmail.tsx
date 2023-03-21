@@ -8,13 +8,14 @@ export default function ButtonGmail() {
         backgroundColor: '#4285F4',
         color: '#FFFFFF',
         borderRadius: '4px',
-        padding: '8px',
+        padding: '10px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         gap: '8px',
         border: 'none',
         cursor: 'pointer',
+        margin:'8px'
       }}
     >
       <FaGoogle size={16} />

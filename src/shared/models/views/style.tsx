@@ -29,6 +29,21 @@ export const ContainerContent = styled.div`
     background-image: url(https://img.freepik.com/fotos-gratis/fundo-azul-do-gradiente-de-luxo-abstrato-liso-azul-escuro-com-vinheta-preta-studio-banner_1258-72075.jpg);
     background-size: cover;
     background-position: center;*/
+
     `
+
+ export const CardContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    overflow: hidden;
+ 
+ `   
+
+ export const CardImage = styled.img`
+    max-width: 100%;
+    heigth:auto;
+ 
+ `
 
     
