@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { FaEdit } from 'react-icons/fa';
 import React from 'react';
+import InputGroup from './input-group';
 
 export default function ButtonEdit() {
   const [showModal, setShowModal] = useState(false);
@@ -31,20 +32,7 @@ export default function ButtonEdit() {
           <Modal.Title>Editar Perfil</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Nome</Form.Label>
-                <Form.Control
-                  autoFocus
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Data de Nascimento</Form.Label>
-                <Form.Control
-                  autoFocus
-                />
-              </Form.Group>
-            </Form>
+          <InputGroup/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleModalClose}>

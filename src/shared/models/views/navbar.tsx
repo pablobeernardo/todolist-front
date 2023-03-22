@@ -12,7 +12,7 @@ export default function NavApp() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">ToDo List</Navbar.Brand>
+        <Navbar.Brand href="#">Home</Navbar.Brand>
            <Navbar.Toggle aria-controls="navbarScroll" />
              <Navbar.Collapse id="navbarScroll">
                 <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>

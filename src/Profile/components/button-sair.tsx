@@ -22,7 +22,7 @@ export default function SairButton() {
 
   return (
     <>
-      <Button variant="danger" onClick={handleSairClick}>
+      <Button variant="danger" className="btn-sm mx-2" onClick={handleSairClick}>
         <FaSignOutAlt /> Sair
       </Button>
 

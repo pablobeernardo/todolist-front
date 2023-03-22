@@ -20,7 +20,7 @@ export default class HomeView extends React.Component<Props >{
             <ContainerFull className="vh-100">
                 <NavApp/> 
                 <ContainerContent >    
-                    <Card className="row horizontal-card-80">
+                    <Card className="row horizontal-card-80  ">
                         <Card.Body className="py-5 px-5">                                    
                             <TaskFormComponent />                                    
                             <TaskTabGroup 
