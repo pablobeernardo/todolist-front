@@ -3,7 +3,7 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import { FaEdit } from 'react-icons/fa';
 import React from 'react';
 
-export default function ButtonEdit() {
+export default function ButtonEditTask() {
   const [showModal, setShowModal] = useState(false);
 
   const handleEditClick = () => {

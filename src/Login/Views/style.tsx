@@ -80,9 +80,10 @@ export const LoginButton = styled.button`
 `;
 
 export const StyledLogo = styled.img`
-  max-width: 30%;
+  max-width: 20%;
   heigth: auto;
   margin-bottom:7px;
+  padding-bottom: 35px;
 
 `
 

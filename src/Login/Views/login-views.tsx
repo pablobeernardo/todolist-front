@@ -2,6 +2,7 @@ import React from 'react';
 import NavApp from '../../shared/models/views/navbar';
 import ButtonGmail from '../components/button-gmail';
 import { PageContainer, MainContainer, Title, Subtitle, StyledLogo } from './style';
+import { Link } from 'react-router-dom';
 
 export default function LoginView() {
 
@@ -14,7 +15,9 @@ export default function LoginView() {
                     <hr></hr>
                 </Subtitle>
                 <StyledLogo src="https://raw.githubusercontent.com/mustafaynk/todolist/master/appgallery/logo.png" alt="Logo" />
+                <Link to="/home" className="subliNone">
                 <ButtonGmail/>
+                </Link>
             </MainContainer>
         </PageContainer>
           

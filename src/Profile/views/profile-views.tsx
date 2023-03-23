@@ -4,6 +4,7 @@ import ButtonEdit from "../components/button-edit";
 import SairButton from "../components/button-sair";
 import { ContainerFull, ContainerContent } from "../../shared/models/views/style";
 import NavApp from "../../shared/models/views/navbar";
+import ButtonEditProfile from "../components/button-edit";
 
 interface Props{
     
@@ -23,7 +24,7 @@ export default class HomeProfile extends React.Component<Props>{
                     </div>
                     <MDBTypography tag="h4" className="mb-3">victor vh</MDBTypography>
                     <MDBCardText className="text-muted mb-4">
-                        <ButtonEdit/>
+                        <ButtonEditProfile/>
                     </MDBCardText>
                   
                     <SairButton/>

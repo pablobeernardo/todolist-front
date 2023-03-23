@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Col, Button } from "react-bootstrap";
-import ModalsTask from "../modal";
+import ModalsTask from "../modal-newTask";
 
 interface Props{
 

@@ -1,6 +1,7 @@
 import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import { useState } from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Avatar() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -39,16 +40,16 @@ export default function Avatar() {
       >
         <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
           <li>
-            <a href="/profile" style={{ color: '#333333', textDecoration: 'none' }}>
+            <Link to="/profile" style={{ color: '#333333', textDecoration: 'none' }}>
               <FaUserCircle size={14} style={{ marginRight: '8px' }} />
               Perfil
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/logout" style={{ color: '#333333', textDecoration: 'none' }}>
+            <Link to="/" style={{ color: '#333333', textDecoration: 'none' }}>
               <FaSignOutAlt size={14} style={{ marginRight: '8px' }} />
               Sair
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

@@ -6,20 +6,21 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
 import Avatar from '../../../home/views/components/avatar-button';
+import { Link } from 'react-router-dom';
 
 
 export default function NavApp() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Home</Navbar.Brand>
-           <Navbar.Toggle aria-controls="navbarScroll" />
+        <Link to="/home" className="subliNone"><Navbar.Brand>Home</Navbar.Brand></Link>
+        <Navbar.Toggle aria-controls="navbarScroll" />
              <Navbar.Collapse id="navbarScroll">
                 <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
                 </Nav>
                     <Form className="d-flex">
                         <Form.Control type="search" placeholder="Pesquisar" className="me-2" aria-label="Search"/>
-                            <Avatar />
+                          <Link to="/profile" className="subliNone"><Avatar/></Link>
                     </Form>
         </Navbar.Collapse>
       </Container>

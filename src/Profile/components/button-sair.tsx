@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { FaSignOutAlt } from 'react-icons/fa';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function SairButton() {
   const [showModal, setShowModal] = useState(false);
@@ -30,17 +31,22 @@ export default function SairButton() {
         <Modal.Header closeButton>
           <Modal.Title>Sair da Conta</Modal.Title>
         </Modal.Header>
+        
         <Modal.Body>
           Tem certeza de que deseja sair da sua conta?
         </Modal.Body>
+        
         <Modal.Footer>
           <Button variant="secondary" onClick={handleModalClose}>
             Cancelar
           </Button>
-          <Button variant="danger" onClick={handleConfirmSair}>
-            Sair
-          </Button>
+          <Link to="/" className="subliNone">
+            <Button variant="danger" onClick={handleConfirmSair}>
+             Sair
+            </Button>
+          </Link>
         </Modal.Footer>
+      
       </Modal>
     </>
   );

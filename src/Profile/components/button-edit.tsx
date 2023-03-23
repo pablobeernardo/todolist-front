@@ -4,7 +4,7 @@ import { FaEdit } from 'react-icons/fa';
 import React from 'react';
 import InputGroup from './input-group';
 
-export default function ButtonEdit() {
+export default function ButtonEditProfile() {
   const [showModal, setShowModal] = useState(false);
 
   const handleEditClick = () => {

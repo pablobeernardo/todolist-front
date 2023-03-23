@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Container,Row} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import TaskFormComponent from "./components/task-form-component";
 import TaskTabGroup from "./components/task-tab-group";
 import { ContainerFull, ContainerContent } from "../../shared/models/views/style";
@@ -23,9 +23,7 @@ export default class HomeView extends React.Component<Props >{
                     <Card className="row horizontal-card-80  ">
                         <Card.Body className="py-5 px-5">                                    
                             <TaskFormComponent />                                    
-                            <TaskTabGroup 
-                                firstTabDescription="Novas Tarefas" 
-                            />                                    
+                            <TaskTabGroup firstTabDescription="Novas Tarefas"/>                                    
                         </Card.Body>
                     </Card>
                 </ContainerContent>
