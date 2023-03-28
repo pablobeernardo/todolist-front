@@ -4,7 +4,11 @@ import ButtonGmail from '../components/button-gmail';
 import { PageContainer, MainContainer, Title, Subtitle, StyledLogo } from './style';
 import { Link } from 'react-router-dom';
 
-export default function LoginView() {
+interface Props{
+    sendAuthCode: any;
+}
+
+export default function LoginView(props: Props ) {
 
   return (
         <PageContainer>
@@ -16,7 +20,7 @@ export default function LoginView() {
                 </Subtitle>
                 <StyledLogo src="https://raw.githubusercontent.com/mustafaynk/todolist/master/appgallery/logo.png" alt="Logo" />
                 <Link to="/home" className="subliNone">
-                <ButtonGmail/>
+                <ButtonGmail sendAuthCode={props.sendAuthCode}/>
                 </Link>
             </MainContainer>
         </PageContainer>

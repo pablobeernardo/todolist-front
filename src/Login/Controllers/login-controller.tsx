@@ -3,17 +3,16 @@ import LoginView from "../Views/login-views";
 
 
 
-interface Props{
+export default function LoginController(){
 
-}
+        function senn(){
 
+        }
+        
+        
 
-
-export default class LoginController extends React.Component<Props>{
-
-    render(){
         return(
-            <LoginView></LoginView>
+            <LoginView sendAuthCode={()=>senn()}></LoginView>
         )
-    }
+    
 }

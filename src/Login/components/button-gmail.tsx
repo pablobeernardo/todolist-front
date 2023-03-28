@@ -1,9 +1,24 @@
 import { FaGoogle } from 'react-icons/fa';
 import React from 'react';
+import { useGoogleLogin } from '@react-oauth/google';
 
-export default function ButtonGmail() {
+interface Props{
+  sendAuthCode: any;
+}
+
+
+
+export default function ButtonGmail(props: Props) {
+  const login = useGoogleLogin({
+    onSuccess: credentialResponse => {
+      console.log(credentialResponse);
+    }
+  })
+
+  const { sendAuthCode } = props;
+
   return (
-    <button
+    <button onClick={() => login()}
       style={{
         backgroundColor: '#4285F4',
         color: '#FFFFFF',
