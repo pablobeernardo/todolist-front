@@ -1,24 +1,25 @@
-import { FaGoogle } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import React from 'react';
-import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 
 interface Props{
-  sendAuthCode: any;
+  sendAuthCode:any;
+
+
 }
 
-
-
-export default function ButtonGmail(props: Props) {
+export default function ButtonGoogle(props:Props) {
+  
   const login = useGoogleLogin({
-    onSuccess: credentialResponse => {
+    onSuccess:credentialResponse => {
       console.log(credentialResponse);
+      sendAuthCode(credentialResponse);
     }
   })
-
-  const { sendAuthCode } = props;
+ const{sendAuthCode} = props
 
   return (
-    <button onClick={() => login()}
+    <button onClick={()=>login()}value='Login'
       style={{
         backgroundColor: '#4285F4',
         color: '#FFFFFF',
@@ -33,8 +34,12 @@ export default function ButtonGmail(props: Props) {
         margin:'8px'
       }}
     >
-      <FaGoogle size={16} />
-      <span>Entrar com o Gmail</span>
-    </button>
+     
+  
+        <FcGoogle className="mr-4" /> Continuar com o Google
+    
+        
+        
+        </button>
   );
 }

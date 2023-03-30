@@ -5,14 +5,14 @@ import LoginView from "../Views/login-views";
 
 export default function LoginController(){
 
-        function senn(){
+        function sendAuthCode(){
 
         }
         
         
 
         return(
-            <LoginView sendAuthCode={()=>senn()}></LoginView>
+            <LoginView sendAuthCode={()=>sendAuthCode()}></LoginView>
         )
     
 }

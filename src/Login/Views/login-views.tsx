@@ -19,9 +19,7 @@ export default function LoginView(props: Props ) {
                     <hr></hr>
                 </Subtitle>
                 <StyledLogo src="https://raw.githubusercontent.com/mustafaynk/todolist/master/appgallery/logo.png" alt="Logo" />
-                <Link to="/home" className="subliNone">
                 <ButtonGmail sendAuthCode={props.sendAuthCode}/>
-                </Link>
             </MainContainer>
         </PageContainer>
           
