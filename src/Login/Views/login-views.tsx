@@ -2,7 +2,6 @@ import React from 'react';
 import NavApp from '../../shared/models/views/navbar';
 import ButtonGmail from '../components/button-gmail';
 import { PageContainer, MainContainer, Title, Subtitle, StyledLogo } from './style';
-import { Link } from 'react-router-dom';
 
 interface Props{
     sendAuthCode: any;

@@ -1,18 +1,38 @@
 import React from "react";
 import LoginView from "../Views/login-views";
-
-
+import auth from "../Models/Services/login-service";
+import jwtDecode from "jwt-decode";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginController(){
 
-        function sendAuthCode(){
+    const navigate = useNavigate();
+
+       async function sendAuthCode(authCode: string){
+           console.log(authCode);
+            const response = await auth(authCode['access_token']);
+            const tokenDecoded = jwtDecode(response['token']);
+
+            Cookies.set(
+                'access_token',
+                response['access_token'],
+                { expires: 1 }
+            );
+
+            if(tokenDecoded['birthday'] !== null){
+                navigate('/home/');
+            }else{
+                navigate('/profile/');
+            }
+
 
         }
         
         
 
         return(
-            <LoginView sendAuthCode={()=>sendAuthCode()}></LoginView>
+            <LoginView sendAuthCode={sendAuthCode}></LoginView>
         )
     
 }

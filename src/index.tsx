@@ -14,8 +14,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <GoogleOAuthProvider clientId="798550339304-t9c6dq7qn2dr9bl2vj6n7l2dpr5opu20.apps.googleusercontent.com
-  ">
+  <GoogleOAuthProvider clientId="798550339304-t9c6dq7qn2dr9bl2vj6n7l2dpr5opu20.apps.googleusercontent.com">
     <HashRouter>
       <Routes>
         <Route path="/" element={<LoginController/>} />
