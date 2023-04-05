@@ -7,9 +7,15 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
 import Avatar from '../../../home/views/components/avatar-button';
 import { Link } from 'react-router-dom';
+import UserModel from '../user-model';
 
 
-export default function NavApp() {
+interface Props{
+  user?: UserModel | undefined;
+
+}
+
+export default function NavApp(props:Props) {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>

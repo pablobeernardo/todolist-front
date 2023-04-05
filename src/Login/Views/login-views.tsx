@@ -2,9 +2,11 @@ import React from 'react';
 import NavApp from '../../shared/models/views/navbar';
 import ButtonGmail from '../components/button-gmail';
 import { PageContainer, MainContainer, Title, Subtitle, StyledLogo } from './style';
+import UserModel from '../../shared/models/user-model';
 
 interface Props{
     sendAuthCode: any;
+    user?: UserModel | undefined;
 }
 
 export default function LoginView(props: Props ) {

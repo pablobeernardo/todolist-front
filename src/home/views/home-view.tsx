@@ -4,10 +4,11 @@ import TaskFormComponent from "./components/task-form-component";
 import TaskTabGroup from "./components/task-tab-group";
 import { ContainerFull, ContainerContent } from "../../shared/models/views/style";
 import NavApp from "../../shared/models/views/navbar";
+import UserModel from "../../shared/models/user-model";
 
 
 interface Props{
-    
+    user?: UserModel | undefined;
     
 }
 
@@ -18,7 +19,7 @@ export default class HomeView extends React.Component<Props >{
 
         return (
             <ContainerFull className="vh-100">
-                <NavApp/> 
+                <NavApp user={this.props.user} /> 
                 <ContainerContent >    
                     <Card className="row horizontal-card-80  ">
                         <Card.Body className="py-5 px-5">                                    

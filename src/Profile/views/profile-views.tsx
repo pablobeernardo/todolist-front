@@ -5,9 +5,11 @@ import SairButton from "../components/button-sair";
 import { ContainerFull, ContainerContent } from "../../shared/models/views/style";
 import NavApp from "../../shared/models/views/navbar";
 import ButtonEditProfile from "../components/button-edit";
+import UserModel from "../../shared/models/user-model";
 
 interface Props{
-    
+  user?: UserModel | undefined;
+
 }
 
 export default class HomeProfile extends React.Component<Props>{
@@ -19,7 +21,7 @@ export default class HomeProfile extends React.Component<Props>{
                 <MDBCard style={{ borderRadius: '15px', width:450 }}>
                   <MDBCardBody className="text-center">
                     <div className="mt-3 mb-4">
-                      <MDBCardImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz6hrrsVtU9Go37TE5rxkJr9cQEuP0aE04M5gN66vjCeo2rNx8I8h3sZLThifUk8mpqac&usqp=CAU"
+                      <MDBCardImage alt="" src={this.props.user !== undefined ? this.props.user.profilePictureImageUrl : "https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" }
                         className="rounded-circle" fluid style={{ width: '170px' }} />
                     </div>
                     <MDBTypography tag="h4" className="mb-3">victor vh</MDBTypography>

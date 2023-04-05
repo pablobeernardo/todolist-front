@@ -1,6 +1,7 @@
 import React from "react";
 import TaskModel from "../../shared/models/task-model";
 import HomeView from "../views/home-view";
+import getUserFromCookies from "../../shared/utils/get-user-from-cookies-util";
 
 interface Props{
 
@@ -19,7 +20,7 @@ export default class HomeController extends React.Component<Props, State>{
 
     render(){
         return(
-            <HomeView></HomeView>
+            <HomeView user={getUserFromCookies()}></HomeView>
         )
     }
 }
