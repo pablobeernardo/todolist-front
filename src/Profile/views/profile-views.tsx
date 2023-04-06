@@ -1,31 +1,34 @@
 import React from "react";
 import { MDBCard, MDBCardBody, MDBCardImage, MDBTypography, MDBCardText } from "mdb-react-ui-kit";
-import ButtonEdit from "../components/button-edit";
 import SairButton from "../components/button-sair";
 import { ContainerFull, ContainerContent } from "../../shared/models/views/style";
 import NavApp from "../../shared/models/views/navbar";
 import ButtonEditProfile from "../components/button-edit";
 import UserModel from "../../shared/models/user-model";
+import profile2 from "../../assets/imagem-profile.jpg";
 
 interface Props{
-  user?: UserModel | undefined;
+  user: UserModel;
 
 }
 
 export default class HomeProfile extends React.Component<Props>{
     render(){
+      console.log('Teste', this.props.user.profilePictureImageUrl);
         return(
           <ContainerFull className="vh-100">
-            <NavApp/> 
+            <NavApp user={this.props.user}/> 
               <ContainerContent >
                 <MDBCard style={{ borderRadius: '15px', width:450 }}>
                   <MDBCardBody className="text-center">
-                    <div className="mt-3 mb-4">
-                      <MDBCardImage alt="" src={this.props.user !== undefined ? this.props.user.profilePictureImageUrl : "https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" }
-                        className="rounded-circle" fluid style={{ width: '170px' }} />
-                    </div>
-                    <MDBTypography tag="h4" className="mb-3">victor vh</MDBTypography>
-                    <MDBCardText className="text-muted mb-4">
+                  
+                    <MDBCardImage alt="" src={this.props.user !== undefined ? this.props.user.profilePictureImageUrl : profile2}
+                      className="rounded-circle" fluid style={{ width: '170px' }} />
+    
+                    <MDBTypography tag="h1" className="mb-1">Victor Hugo</MDBTypography> 
+                    <MDBTypography tag="h6" className="mb-1">vh@gmail.com</MDBTypography>
+                    <MDBTypography tag="h6" className="mb-3">13/08/1996</MDBTypography>
+                    <MDBCardText className="text-muted mb-3">
                         <ButtonEditProfile/>
                     </MDBCardText>
                   

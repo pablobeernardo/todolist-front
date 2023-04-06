@@ -16,8 +16,8 @@ export default function ButtonEditProfile() {
   };
 
   const handleConfirmEdit = () => {
-    // aqui você pode colocar a lógica para editar a tarefa
-    console.log('Tarefa editada');
+    // aqui você pode colocar a lógica para editar os dados
+    console.log('Dados editados');
     setShowModal(false);
   };
 

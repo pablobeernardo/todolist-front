@@ -8,6 +8,8 @@ import LoginController from './Login/Controllers/login-controller';
 import HomeProfile from './Profile/views/profile-views';
 import HomeView from './home/views/home-view';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import HomeController from './home/controllers/home-controller';
+import ProfileController from './Profile/controllers/profile-controller';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,8 +20,8 @@ root.render(
     <HashRouter>
       <Routes>
         <Route path="/" element={<LoginController/>} />
-        <Route path="/home" element={<HomeView/>} />
-        <Route path="/profile" element={<HomeProfile/>}/>
+        <Route path="/home" element={<HomeController/>} />
+        <Route path="/profile" element={<ProfileController/>}/>
       </Routes>
     </HashRouter>
   </GoogleOAuthProvider>

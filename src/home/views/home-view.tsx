@@ -8,7 +8,7 @@ import UserModel from "../../shared/models/user-model";
 
 
 interface Props{
-    user?: UserModel | undefined;
+    user: UserModel | undefined;
     
 }
 

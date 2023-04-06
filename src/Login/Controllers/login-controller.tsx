@@ -17,7 +17,7 @@ export default function LoginController(){
 
             Cookies.set(
                 'access_token',
-                response['access_token'],
+                response['token'],
                 { expires: 1 }
             );
 

@@ -1,17 +1,15 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
-import Avatar from '../../../home/views/components/avatar-button';
 import { Link } from 'react-router-dom';
 import UserModel from '../user-model';
+import ImageAvatars from '../../../home/views/components/avatar-button';
 
 
 interface Props{
-  user?: UserModel | undefined;
+  user: UserModel | undefined;
 
 }
 
@@ -26,7 +24,7 @@ export default function NavApp(props:Props) {
                 </Nav>
                     <Form className="d-flex">
                         <Form.Control type="search" placeholder="Pesquisar" className="me-2" aria-label="Search"/>
-                          <Link to="/profile" className="subliNone"><Avatar/></Link>
+                          <Link to="/profile" className="subliNone"><ImageAvatars user={props.user}/></Link>
                     </Form>
         </Navbar.Collapse>
       </Container>

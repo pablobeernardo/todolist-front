@@ -13,7 +13,7 @@ export default function LoginView(props: Props ) {
 
   return (
         <PageContainer>
-            <NavApp />
+            <NavApp user={props.user} />
             <MainContainer>
                 <Title>Todo List</Title>
                 <Subtitle>Organize suas tarefas
