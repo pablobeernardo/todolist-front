@@ -9,6 +9,7 @@ import UserModel from "../../shared/models/user-model";
 
 interface Props{
     user: UserModel | undefined;
+    handleChange: any;
     
 }
 
@@ -23,7 +24,7 @@ export default class HomeView extends React.Component<Props >{
                 <ContainerContent >    
                     <Card className="row horizontal-card-80  ">
                         <Card.Body className="py-5 px-5">                                    
-                            <TaskFormComponent />                                    
+                            <TaskFormComponent handleChange={this.props.handleChange} />                                    
                             <TaskTabGroup firstTabDescription="Novas Tarefas"/>                                    
                         </Card.Body>
                     </Card>

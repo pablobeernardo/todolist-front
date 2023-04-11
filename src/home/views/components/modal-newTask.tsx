@@ -3,7 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-export default function ModalsTask() {
+
+interface Props{
+  handleChange: any;
+}
+
+
+export default function ModalsTask(props:Props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -25,7 +31,7 @@ export default function ModalsTask() {
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Digite sua nova tarefa</Form.Label>
-              <Form.Control
+              <Form.Control onChange={props.handleChange}
                 autoFocus
               />
             </Form.Group>

@@ -4,23 +4,41 @@ import HomeView from "../views/home-view";
 import getUserFromCookies from "../../shared/utils/get-user-from-cookies-util";
 
 interface Props{
-
+    
+    
 }
 
 interface State{
-    todoList: TaskModel[];
+    tasks: TaskModel[];
+    task: string;
+    userId: number;
 }
 
 export default class HomeController extends React.Component<Props, State>{
     
-    constructor(props){
+    constructor(props: Props){
         super(props);
-        this.state = {todoList: []}
+        this.state = {tasks: [], task:'', userId: 0};
+        
+       
     }
+
+    handleChange = (event) => {
+        console.log(this.state);
+        this.setState({ [event.target.name]: event.target.value} as Pick<State, keyof State>);
+
+    }
+
+    componentDidMount(): void {
+        const user = getUserFromCookies();
+        this.setState({userId: user.id});
+
+    }
+  
 
     render(){
         return(
-            <HomeView user={getUserFromCookies()}></HomeView>
+            <HomeView handleChange={this.handleChange} user={getUserFromCookies()}></HomeView>
         )
     }
 }

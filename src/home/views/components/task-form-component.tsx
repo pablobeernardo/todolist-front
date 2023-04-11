@@ -3,7 +3,7 @@ import { Form, Col, Button } from "react-bootstrap";
 import ModalsTask from "./modal-newTask";
 
 interface Props{
-
+    handleChange: any;
 }
 
 
@@ -13,7 +13,7 @@ export default class TaskFormComponent extends React.Component<Props>{
         return(
             <Form className="d-flex justify-content-between mb-5">
                 <Col sm='11'>
-                    <ModalsTask/>
+                    <ModalsTask handleChange={this.props.handleChange}/>
                 </Col>
             </Form>
         )
