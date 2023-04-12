@@ -25,6 +25,8 @@ export default function ImageAvatars(props: Props) {
     // Coloque aqui o código para fazer logout da conta
   };
 
+  console.log("usuario na navbar", props.user);
+
   return (
     <>
       <IconButton onClick={handleMenuOpen}>

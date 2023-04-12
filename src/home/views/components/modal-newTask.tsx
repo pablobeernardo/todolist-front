@@ -6,14 +6,22 @@ import Modal from 'react-bootstrap/Modal';
 
 interface Props{
   handleChange: any;
+  handleSubmit: any;
 }
 
 
 export default function ModalsTask(props:Props) {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {    
+    setShow(false);
+  }
   const handleShow = () => setShow(true);
+
+  const handleSubmit = (event) => {
+    props.handleSubmit(event);
+    handleClose();
+  }
 
   return (
     <>
@@ -31,7 +39,7 @@ export default function ModalsTask(props:Props) {
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Digite sua nova tarefa</Form.Label>
-              <Form.Control onChange={props.handleChange}
+              <Form.Control id="task" name="task" onChange={props.handleChange} 
                 autoFocus
               />
             </Form.Group>
@@ -42,7 +50,7 @@ export default function ModalsTask(props:Props) {
           <Button variant="secondary" onClick={handleClose}>
             Fechar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSubmit}>
             Salvar
           </Button>
         </Modal.Footer>

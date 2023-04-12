@@ -1,10 +1,10 @@
 import React from "react";
-import TaskModel from "../../shared/models/task-model";
+import TaskModel, { User } from "../../shared/models/task-model";
 import HomeView from "../views/home-view";
 import getUserFromCookies from "../../shared/utils/get-user-from-cookies-util";
+import CreateTaskService from "../models/services/create-task-service";
 
 interface Props{
-    
     
 }
 
@@ -29,16 +29,38 @@ export default class HomeController extends React.Component<Props, State>{
 
     }
 
+    handleSubmit = async (event) =>{
+        event.preventDefault();
+        
+        const {tasks, task , userId} = this.state;
+        const date = Date.now();
+        
+        var user = new User();
+        user.id = userId;
+     
+        var newTask = new TaskModel(true, task, date, user);
+
+        console.log(newTask);
+        const createdTask = await CreateTaskService(newTask);
+        tasks.push(createdTask);
+
+        this.setState({ tasks: tasks, task: ''});
+
+
+    }
+
     componentDidMount(): void {
         const user = getUserFromCookies();
         this.setState({userId: user.id});
 
     }
+
+
   
 
     render(){
         return(
-            <HomeView handleChange={this.handleChange} user={getUserFromCookies()}></HomeView>
+            <HomeView handleSubmit={this.handleSubmit} handleChange={this.handleChange} user={getUserFromCookies()}></HomeView>
         )
     }
 }

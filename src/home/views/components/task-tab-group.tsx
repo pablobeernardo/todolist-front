@@ -1,7 +1,5 @@
 import React from "react";
-import { ListGroup, Row, Col, FormCheck, Tab, Tabs, Button } from "react-bootstrap";
-import ButtonExcluir from "./button-excluir";
-import ButtonEdit from "./button-edit";
+import { Tab, Tabs } from "react-bootstrap";
 import TaskComponent from "./task-component-din";
 import TaskCompleted from "./task-completed-din";
 

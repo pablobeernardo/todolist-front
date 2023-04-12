@@ -1,12 +1,19 @@
+
 export default class TaskModel {
     id: number;
     status: boolean;    
-    description: string;
+    taskDescription: string;
     createDate: number;
+    user: User;
 
-    constructor(status: boolean, description: string, createDate: number){
+    constructor(status: boolean, description: string, createDate: number, user: User){
         this.status = status;
-        this.description = description;
+        this.taskDescription = description;
         this.createDate = createDate;
+        this.user = user;
     }
+}
+
+export class User{
+    id: number;
 }
