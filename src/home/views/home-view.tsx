@@ -5,12 +5,14 @@ import TaskTabGroup from "./components/task-tab-group";
 import { ContainerFull, ContainerContent } from "../../shared/models/views/style";
 import NavApp from "../../shared/models/views/navbar";
 import UserModel from "../../shared/models/user-model";
+import TaskModel from "../../shared/models/task-model";
 
 
 interface Props{
     user: UserModel | undefined;
     handleChange: any;
     handleSubmit: any;
+    tasks: TaskModel[];
 
     
 }

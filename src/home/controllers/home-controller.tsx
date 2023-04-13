@@ -3,6 +3,7 @@ import TaskModel, { User } from "../../shared/models/task-model";
 import HomeView from "../views/home-view";
 import getUserFromCookies from "../../shared/utils/get-user-from-cookies-util";
 import CreateTaskService from "../models/services/create-task-service";
+import getTasksService from "../models/services/get-task-service";
 
 interface Props{
     
@@ -49,18 +50,32 @@ export default class HomeController extends React.Component<Props, State>{
 
     }
 
-    componentDidMount(): void {
-        const user = getUserFromCookies();
-        this.setState({userId: user.id});
+
+    private async getTasks(userId: number): Promise<void> {
+        var tasks: TaskModel[] = [];
+
+        tasks = await getTasksService(userId);
+        console.log('chamou as tarefas',tasks);
+        this.setState({tasks: tasks});
 
     }
 
+    componentDidMount(): void {
+        const user = getUserFromCookies();
+        this.setState({userId: user.id});
+        this.getTasks(user.id);
 
+    }
   
 
     render(){
         return(
-            <HomeView handleSubmit={this.handleSubmit} handleChange={this.handleChange} user={getUserFromCookies()}></HomeView>
+            <HomeView 
+            handleSubmit={this.handleSubmit} 
+            handleChange={this.handleChange} 
+            user={getUserFromCookies()}
+            tasks={this.state.tasks}
+            />
         )
     }
 }
