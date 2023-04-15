@@ -29,7 +29,7 @@ export default class HomeView extends React.Component<Props >{
                     <Card className="row horizontal-card-80  ">
                         <Card.Body className="py-5 px-5">                                    
                             <TaskFormComponent handleSubmit={this.props.handleSubmit} handleChange={this.props.handleChange} />                                    
-                            <TaskTabGroup firstTabDescription="Novas Tarefas"/>                                    
+                            <TaskTabGroup tasks={this.props.tasks} firstTabDescription="Novas Tarefas"/>                                    
                         </Card.Body>
                     </Card>
                 </ContainerContent>
