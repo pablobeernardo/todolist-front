@@ -7,6 +7,7 @@ interface Props{
   handleConfirm: any;
   handleCancel: any;
   propsOpen: boolean;
+  handleDeleteTask:any;
 
 }
 
@@ -20,7 +21,7 @@ export default function ButtonExcluir(props:Props) {
         <FaTrash /> Excluir
       </Button>
 
-      <Modal show={props.propsOpen}>
+      <Modal showModal={props.propsOpen}>
         <Modal.Header closeButton>
           <Modal.Title>Confirmar exclusão</Modal.Title>
         </Modal.Header>

@@ -7,6 +7,11 @@ import TaskModel from "../../../shared/models/task-model";
 
 interface Props {
   tasks: TaskModel[];
+  handleDeleteTask: any;
+  handleConfirm: any;
+  handleCancel: any;
+  propsOpen: boolean;
+  
 }
 
 interface State {
@@ -20,6 +25,8 @@ export default class TaskComponent extends React.Component<Props, State> {
     super(props);
     this.state = {
       selectedTasks: [],
+      taskToWork: null,
+      ShowModal: false,
     };
     this.handleCheck = this.handleCheck.bind(this);
   }
@@ -50,7 +57,7 @@ export default class TaskComponent extends React.Component<Props, State> {
   private handleDeleteConfirmDialog = () => {
 
     this.props.handleDeleteTask(this.state.taskToWork.id);
-    this.setState({ dialogUpdateOpen: false, taskToWork: null });
+    this.setState({ ShowModal: false, taskToWork: null });
 
 
   }
@@ -77,7 +84,7 @@ export default class TaskComponent extends React.Component<Props, State> {
               </Col>
               <Col className="itemRight">
                 <ButtonEditTask />
-                <ButtonExcluir />
+                <ButtonExcluir handleDeleteTask={this.props.handleDeleteTask} handleCancel={this.props.handleCancel} handleConfirm={this.props.handleConfirm} propsOpen={this.props.propsOpen}/>
               </Col>
             </Row>
           </ListGroup.Item>

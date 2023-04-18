@@ -7,6 +7,10 @@ import TaskModel from "../../../shared/models/task-model";
 interface Props{
     firstTabDescription: string;
     tasks: TaskModel[];
+    handleDeleteTask: any;
+    handleConfirm: any;
+    handleCancel: any;
+    propsOpen: boolean;
 
 }
 
@@ -15,12 +19,12 @@ export default class TaskTabGroup extends React.Component<Props>{
         return(
             <Tabs defaultActiveKey="new" id="uncontrolled-tab-example" className="mb-3 ">
                 <Tab eventKey="new" title="Lista de Tarefas">
-                    <TaskComponent tasks={this.props.tasks}
+                    <TaskComponent handleDeleteTask={this.props.handleDeleteTask} handleCancel={this.props.handleCancel} handleConfirm={this.props.handleConfirm} propsOpen={this.props.propsOpen} tasks={this.props.tasks}
  />
                 </Tab>  
 
                 <Tab eventKey="done" title="Tarefas Concluídas">
-                    <TaskCompleted/>
+                    <TaskCompleted handleDeleteTask={this.props.handleDeleteTask} handleCancel={this.props.handleCancel} handleConfirm={this.props.handleConfirm} propsOpen={this.props.propsOpen} tasks={this.props.tasks}/>
                 </Tab>  
             </Tabs>
         )

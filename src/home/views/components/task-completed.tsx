@@ -1,6 +1,16 @@
 import React from "react";
 import { ListGroup, Row, Col, FormCheck } from "react-bootstrap";
 import ButtonExcluir from "./button-excluir";
+import TaskModel from "../../../shared/models/task-model";
+
+
+interface Props {
+    handleConfirm: any;
+    handleCancel: any;
+    propsOpen: boolean;
+    handleDeleteTask: any;
+    tasks: TaskModel[];
+  }
 
 const tasksCompleted = [
     {
@@ -33,7 +43,8 @@ export default class TaskCompleted extends React.Component<Props>{
                                 <span>{task.name}</span>
                             </Col>
                             <Col className="itemRight" >
-                                <ButtonExcluir />
+                            <ButtonExcluir handleDeleteTask={this.props.handleDeleteTask} handleCancel={this.props.handleCancel} handleConfirm={this.props.handleConfirm} propsOpen={this.props.propsOpen}/>
+
                             </Col>
                         </Row>
                     </ListGroup.Item>
