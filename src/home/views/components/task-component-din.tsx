@@ -11,6 +11,8 @@ interface Props {
 
 interface State {
   selectedTasks: number[];
+  ShowModal: boolean;
+  taskToWork: TaskModel;
 }
 
 export default class TaskComponent extends React.Component<Props, State> {
@@ -43,6 +45,14 @@ export default class TaskComponent extends React.Component<Props, State> {
     tasks.push(task);
 
     this.setState({ selectedTasks });
+  }
+
+  private handleDeleteConfirmDialog = () => {
+
+    this.props.handleDeleteTask(this.state.taskToWork.id);
+    this.setState({ dialogUpdateOpen: false, taskToWork: null });
+
+
   }
 
   render() {

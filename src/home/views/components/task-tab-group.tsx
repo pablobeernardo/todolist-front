@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import TaskComponent from "./task-component-din";
-import TaskCompleted from "./task-completed-din";
+import TaskCompleted from "./task-completed";
 import TaskModel from "../../../shared/models/task-model";
 
 interface Props{

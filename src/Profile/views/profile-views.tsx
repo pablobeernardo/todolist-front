@@ -25,9 +25,9 @@ export default class HomeProfile extends React.Component<Props>{
                     <MDBCardImage alt="" src={this.props.user !== undefined ? this.props.user.profilePictureImageUrl : profile2}
                       className="rounded-circle" fluid style={{ width: '170px' }} />
     
-                    <MDBTypography tag="h1" className="mb-1">Victor Hugo</MDBTypography> 
-                    <MDBTypography tag="h6" className="mb-1">vh@gmail.com</MDBTypography>
-                    <MDBTypography tag="h6" className="mb-3">13/08/1996</MDBTypography>
+                    <MDBTypography tag="h4" className="mb-1">{this.props.user.firstname} {this.props.user.lastname}</MDBTypography> 
+                    <MDBTypography tag="h6" className="mb-1">{this.props.user.email}</MDBTypography>
+                    <MDBTypography tag="h6" className="mb-3">{this.props.user.birthday}</MDBTypography>
                     <MDBCardText className="text-muted mb-3">
                         <ButtonEditProfile/>
                     </MDBCardText>

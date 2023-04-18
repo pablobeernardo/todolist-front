@@ -12,7 +12,9 @@ interface Props{
     user: UserModel | undefined;
     handleChange: any;
     handleSubmit: any;
+    handleDeleteTask: any;
     tasks: TaskModel[];
+
 
     
 }
@@ -28,7 +30,7 @@ export default class HomeView extends React.Component<Props >{
                 <ContainerContent >    
                     <Card className="row horizontal-card-80  ">
                         <Card.Body className="py-5 px-5">                                    
-                            <TaskFormComponent handleSubmit={this.props.handleSubmit} handleChange={this.props.handleChange} />                                    
+                            <TaskFormComponent  handleSubmit={this.props.handleSubmit} handleChange={this.props.handleChange} />                                    
                             <TaskTabGroup tasks={this.props.tasks} firstTabDescription="Novas Tarefas"/>                                    
                         </Card.Body>
                     </Card>

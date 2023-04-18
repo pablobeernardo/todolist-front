@@ -4,6 +4,7 @@ import HomeView from "../views/home-view";
 import getUserFromCookies from "../../shared/utils/get-user-from-cookies-util";
 import CreateTaskService from "../models/services/create-task-service";
 import getTasksService from "../models/services/get-task-service";
+import DeleteTaskService from "../models/services/delete-task-services";
 
 interface Props{
     
@@ -50,6 +51,20 @@ export default class HomeController extends React.Component<Props, State>{
 
     }
 
+    handleDeleteTask = async (taskId) =>{
+        const user = getUserFromCookies();
+        this.getTasks(user.id);
+
+        const deleteResult = await DeleteTaskService(taskId);
+        if(deleteResult === 200){
+            this.getTasks(user.id);
+        } else{
+            alert('Ocorreu um erro ao excluir a tarefa')
+        }
+
+
+    }
+
 
     private async getTasks(userId: number): Promise<void> {
         var tasks: TaskModel[] = [];
@@ -71,6 +86,7 @@ export default class HomeController extends React.Component<Props, State>{
     render(){
         return(
             <HomeView 
+            handleDeleteTask={this.handleDeleteTask}
             handleSubmit={this.handleSubmit} 
             handleChange={this.handleChange} 
             user={getUserFromCookies()}
