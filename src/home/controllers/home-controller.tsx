@@ -14,13 +14,16 @@ interface State{
     tasks: TaskModel[];
     task: string;
     userId: number;
+    taskToWork: TaskModel;
+    showModal: boolean;
+
 }
 
 export default class HomeController extends React.Component<Props, State>{
     
     constructor(props: Props){
         super(props);
-        this.state = {tasks: [], task:'', userId: 0};
+        this.state = {tasks: [], task:'', userId: 0, showModal: false, taskToWork: null};
         
        
     }
@@ -75,6 +78,27 @@ export default class HomeController extends React.Component<Props, State>{
 
     }
 
+    handleConfirm = () => {
+
+        this.handleDeleteTask(this.state.taskToWork.id);
+        this.setState({ showModal: false, taskToWork: null });
+    
+    
+      }
+
+    propsOpen(){
+
+        this.setState({showModal: !this.state.showModal})    
+    
+      }
+
+
+    handleCancel = () => {
+
+        this.setState({showModal: !this.state.showModal})    
+    
+      }
+
     componentDidMount(): void {
         const user = getUserFromCookies();
         this.setState({userId: user.id});
@@ -86,11 +110,15 @@ export default class HomeController extends React.Component<Props, State>{
     render(){
         return(
             <HomeView 
+            showModal={this.state.showModal}
             handleDeleteTask={this.handleDeleteTask}
             handleSubmit={this.handleSubmit} 
             handleChange={this.handleChange} 
             user={getUserFromCookies()}
             tasks={this.state.tasks}
+            propsOpen={() => this.propsOpen()}
+            handleConfirm={this.handleConfirm}
+            handleCancel={this.handleCancel}
             />
         )
     }

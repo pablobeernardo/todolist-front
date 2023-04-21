@@ -1,8 +1,9 @@
 import React from "react";
-import { ListGroup, Row, Col, FormCheck } from "react-bootstrap";
-import ButtonExcluir from "./button-excluir";
+import { ListGroup, Row, Col, FormCheck, Button } from "react-bootstrap";
 import ButtonEditTask from "./button-edit";
 import TaskModel from "../../../shared/models/task-model";
+import { FaTrash } from "react-icons/fa";
+import ModalExcluir from "./button-excluir";
 
 
 interface Props {
@@ -10,14 +11,14 @@ interface Props {
   handleDeleteTask: any;
   handleConfirm: any;
   handleCancel: any;
-  propsOpen: boolean;
+  propsOpen: any;
+  showModal: boolean;
   
 }
 
 interface State {
   selectedTasks: number[];
-  ShowModal: boolean;
-  taskToWork: TaskModel;
+  
 }
 
 export default class TaskComponent extends React.Component<Props, State> {
@@ -25,8 +26,7 @@ export default class TaskComponent extends React.Component<Props, State> {
     super(props);
     this.state = {
       selectedTasks: [],
-      taskToWork: null,
-      ShowModal: false,
+      
     };
     this.handleCheck = this.handleCheck.bind(this);
   }
@@ -54,13 +54,7 @@ export default class TaskComponent extends React.Component<Props, State> {
     this.setState({ selectedTasks });
   }
 
-  private handleDeleteConfirmDialog = () => {
-
-    this.props.handleDeleteTask(this.state.taskToWork.id);
-    this.setState({ ShowModal: false, taskToWork: null });
-
-
-  }
+  
 
   render() {
 
@@ -84,7 +78,10 @@ export default class TaskComponent extends React.Component<Props, State> {
               </Col>
               <Col className="itemRight">
                 <ButtonEditTask />
-                <ButtonExcluir handleDeleteTask={this.props.handleDeleteTask} handleCancel={this.props.handleCancel} handleConfirm={this.props.handleConfirm} propsOpen={this.props.propsOpen}/>
+                <Button onClick={this.props.propsOpen} variant="danger" className="btn-sm mx-2" >
+                   <FaTrash /> Excluir
+                </Button>
+                <ModalExcluir showModal={this.props.showModal} handleConfirm={this.props.handleConfirm} handleCancel={this.props.handleCancel} propsOpen={this.props.propsOpen} handleDeleteTask={this.props.handleDeleteTask} />
               </Col>
             </Row>
           </ListGroup.Item>

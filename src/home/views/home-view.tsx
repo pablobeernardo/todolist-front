@@ -16,7 +16,8 @@ interface Props{
     tasks: TaskModel[];
     handleCancel: any;
     handleConfirm: any;
-    propsOpen: boolean;
+    propsOpen: any;
+    showModal: boolean;
     
 }
 
@@ -32,7 +33,7 @@ export default class HomeView extends React.Component<Props >{
                     <Card className="row horizontal-card-80  ">
                         <Card.Body className="py-5 px-5">                                    
                             <TaskFormComponent  handleSubmit={this.props.handleSubmit} handleChange={this.props.handleChange} />                                    
-                            <TaskTabGroup propsOpen={this.props.propsOpen} handleDeleteTask={this.props.handleDeleteTask} handleConfirm={this.props.handleConfirm} handleCancel={this.props.handleCancel} tasks={this.props.tasks} firstTabDescription="Novas Tarefas"/>                                    
+                            <TaskTabGroup showModal={this.props.showModal} propsOpen={this.props.propsOpen} handleDeleteTask={this.props.handleDeleteTask} handleConfirm={this.props.handleConfirm} handleCancel={this.props.handleCancel} tasks={this.props.tasks} firstTabDescription="Novas Tarefas"/>                                    
                         </Card.Body>
                     </Card>
                 </ContainerContent>

@@ -1,15 +1,17 @@
 import React from "react";
-import { ListGroup, Row, Col, FormCheck } from "react-bootstrap";
-import ButtonExcluir from "./button-excluir";
+import { ListGroup, Row, Col, FormCheck, Button } from "react-bootstrap";
 import TaskModel from "../../../shared/models/task-model";
+import { FaTrash } from "react-icons/fa";
+import ModalExcluir from "./button-excluir";
 
 
 interface Props {
     handleConfirm: any;
     handleCancel: any;
-    propsOpen: boolean;
+    propsOpen: any;
     handleDeleteTask: any;
     tasks: TaskModel[];
+    showModal: boolean;
   }
 
 const tasksCompleted = [
@@ -43,7 +45,10 @@ export default class TaskCompleted extends React.Component<Props>{
                                 <span>{task.name}</span>
                             </Col>
                             <Col className="itemRight" >
-                            <ButtonExcluir handleDeleteTask={this.props.handleDeleteTask} handleCancel={this.props.handleCancel} handleConfirm={this.props.handleConfirm} propsOpen={this.props.propsOpen}/>
+                            <Button onClick={this.props.propsOpen} variant="danger" className="btn-sm mx-2" >
+                                <FaTrash /> Excluir
+                            </Button>
+                            <ModalExcluir showModal={this.props.showModal} handleConfirm={this.props.handleConfirm} handleCancel={this.props.handleCancel} propsOpen={this.props.propsOpen} handleDeleteTask={this.props.handleDeleteTask} />
 
                             </Col>
                         </Row>

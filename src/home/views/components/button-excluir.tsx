@@ -1,27 +1,23 @@
-import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { FaTrash } from 'react-icons/fa';
 import React from 'react';
 
 interface Props{
   handleConfirm: any;
   handleCancel: any;
-  propsOpen: boolean;
+  propsOpen: any;
   handleDeleteTask:any;
+  showModal: boolean;
 
 }
 
 
-export default function ButtonExcluir(props:Props) {
+export default function ModalExcluir(props:Props) {
   
 
   return (
     <>
-      <Button variant="danger" className="btn-sm mx-2" >
-        <FaTrash /> Excluir
-      </Button>
-
-      <Modal showModal={props.propsOpen}>
+  
+  <Modal show={props.showModal} onHide={props.handleCancel}>
         <Modal.Header closeButton>
           <Modal.Title>Confirmar exclusão</Modal.Title>
         </Modal.Header>
@@ -32,7 +28,7 @@ export default function ButtonExcluir(props:Props) {
           <Button variant="secondary" onClick={props.handleCancel}>
             Cancelar
           </Button>
-          <Button variant="danger" onClick={props.handleConfirm}>
+          <Button variant="danger" onClick={props.handleDeleteTask}>
             Excluir
           </Button>
         </Modal.Footer>
