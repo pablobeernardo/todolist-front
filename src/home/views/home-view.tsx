@@ -9,16 +9,13 @@ import TaskModel from "../../shared/models/task-model";
 
 
 interface Props{
-    user: UserModel | undefined;
+    user: UserModel;
     handleChange: any;
-    handleSubmit: any;
-    handleDeleteTask: any;
-    tasks: TaskModel[];
-    handleCancel: any;
-    handleConfirm: any;
-    propsOpen: any;
+    handleSubmit: any;    
+    tasks: TaskModel[];    
+    handleConfirm: any;    
     showModal: boolean;
-    
+    handleOpenCloseModal: any;
 }
 
 export default class HomeView extends React.Component<Props >{
@@ -33,7 +30,12 @@ export default class HomeView extends React.Component<Props >{
                     <Card className="row horizontal-card-80  ">
                         <Card.Body className="py-5 px-5">                                    
                             <TaskFormComponent  handleSubmit={this.props.handleSubmit} handleChange={this.props.handleChange} />                                    
-                            <TaskTabGroup showModal={this.props.showModal} propsOpen={this.props.propsOpen} handleDeleteTask={this.props.handleDeleteTask} handleConfirm={this.props.handleConfirm} handleCancel={this.props.handleCancel} tasks={this.props.tasks} firstTabDescription="Novas Tarefas"/>                                    
+                            <TaskTabGroup 
+                                handleOpenCloseModal={this.props.handleOpenCloseModal} 
+                                showModal={this.props.showModal}                                                                 
+                                handleConfirm={this.props.handleConfirm}                                 
+                                tasks={this.props.tasks} 
+                                firstTabDescription="Novas Tarefas"/>                                    
                         </Card.Body>
                     </Card>
                 </ContainerContent>

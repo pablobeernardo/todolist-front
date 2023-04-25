@@ -6,11 +6,11 @@ import CreateTaskService from "../models/services/create-task-service";
 import getTasksService from "../models/services/get-task-service";
 import DeleteTaskService from "../models/services/delete-task-services";
 
-interface Props{
-    
+interface Props {
+
 }
 
-interface State{
+interface State {
     tasks: TaskModel[];
     task: string;
     userId: number;
@@ -20,48 +20,47 @@ interface State{
 }
 
 export default class HomeController extends React.Component<Props, State>{
-    
-    constructor(props: Props){
+
+    constructor(props: Props) {
         super(props);
-        this.state = {tasks: [], task:'', userId: 0, showModal: false, taskToWork: null};
-        
-       
+        this.state = { tasks: [], task: '', userId: 0, showModal: false, taskToWork: null };
+
+
     }
 
     handleChange = (event) => {
         console.log(this.state);
-        this.setState({ [event.target.name]: event.target.value} as Pick<State, keyof State>);
+        this.setState({ [event.target.name]: event.target.value } as Pick<State, keyof State>);
 
     }
 
-    handleSubmit = async (event) =>{
+    handleSubmit = async (event) => {
         event.preventDefault();
-        
-        const {tasks, task , userId} = this.state;
+
+        const { tasks, task, userId } = this.state;
         const date = Date.now();
-        
+
         var user = new User();
         user.id = userId;
-     
-        var newTask = new TaskModel(true, task, date, user);
+
+        var newTask = new TaskModel(false, task, date, user);
 
         console.log(newTask);
         const createdTask = await CreateTaskService(newTask);
         tasks.push(createdTask);
 
-        this.setState({ tasks: tasks, task: ''});
+        this.setState({ tasks: tasks, task: '' });
 
 
     }
 
-    handleDeleteTask = async (taskId) =>{
+    handleDeleteTask = async (taskId: number) => {
         const user = getUserFromCookies();
-        this.getTasks(user.id);
 
         const deleteResult = await DeleteTaskService(taskId);
-        if(deleteResult === 200){
+        if (deleteResult === 200) {
             this.getTasks(user.id);
-        } else{
+        } else {
             alert('Ocorreu um erro ao excluir a tarefa')
         }
 
@@ -73,52 +72,49 @@ export default class HomeController extends React.Component<Props, State>{
         var tasks: TaskModel[] = [];
 
         tasks = await getTasksService(userId);
-        console.log('chamou as tarefas',tasks);
-        this.setState({tasks: tasks});
+        console.log('chamou as tarefas', tasks);
+        this.setState({ tasks: tasks });
 
     }
 
-    handleConfirm = () => {
+    handleConfirm = (task: TaskModel, modalType: string) => {
 
-        this.handleDeleteTask(this.state.taskToWork.id);
+        if (modalType === 'delete') {
+            this.handleDeleteTask(task.id);
+        } else if (modalType === 'update') {
+            //this.handleDeleteTask(this.state.taskToWork.id);            
+        }
+
+        this.getTasks(this.state.userId);
         this.setState({ showModal: false, taskToWork: null });
-    
-    
-      }
 
-    propsOpen(){
+    }  
 
-        this.setState({showModal: !this.state.showModal})    
-    
-      }
+    handleOpenCloseModal(): void {
 
-
-    handleCancel = () => {
-
-        this.setState({showModal: !this.state.showModal})    
-    
-      }
+        const { showModal } = this.state;
+        this.setState({ showModal: !showModal });
+        console.log(this.state)
+    }
 
     componentDidMount(): void {
         const user = getUserFromCookies();
-        this.setState({userId: user.id});
+        this.setState({ userId: user.id });
         this.getTasks(user.id);
 
     }
-  
 
-    render(){
-        return(
-            <HomeView 
-            showModal={this.state.showModal}
-            handleDeleteTask={this.handleDeleteTask}
-            handleSubmit={this.handleSubmit} 
-            handleChange={this.handleChange} 
-            user={getUserFromCookies()}
-            tasks={this.state.tasks}
-            propsOpen={() => this.propsOpen()}
-            handleConfirm={this.handleConfirm}
-            handleCancel={this.handleCancel}
+
+    render() {
+        return (
+            <HomeView
+                showModal={this.state.showModal}                
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                user={getUserFromCookies()}
+                tasks={this.state.tasks}            
+                handleConfirm={(task: TaskModel, modalType: string) => this.handleConfirm(task, modalType)}
+                handleOpenCloseModal={() => this.handleOpenCloseModal()}
             />
         )
     }

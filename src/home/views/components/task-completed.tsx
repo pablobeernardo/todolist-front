@@ -12,20 +12,8 @@ interface Props {
     handleDeleteTask: any;
     tasks: TaskModel[];
     showModal: boolean;
+    handleOpenCloseModal: any;
   }
-
-const tasksCompleted = [
-    {
-        id: 1,
-        name: 'Tarefa 1 concluída',
-    },
-    {
-        id: 2,
-        name: 'Tarefa 2 concluída',
-    },
-];
-
-
 
 interface Props {
 
@@ -35,21 +23,24 @@ export default class TaskCompleted extends React.Component<Props>{
     render() {
         return (
             <ListGroup>
-                {tasksCompleted.map(task => (
+                {this.props.tasks.map(task => (
                     <ListGroup.Item action variant='secondary' className="mb-2 ">
                         <Row className="d-flex flex-row">
                             <Col className="mt-1" sm='1'>
                                 <FormCheck></FormCheck>
                             </Col>
                             <Col className="mt-1 ">
-                                <span>{task.name}</span>
+                                <span>{task.taskDescription}</span>
                             </Col>
                             <Col className="itemRight" >
                             <Button onClick={this.props.propsOpen} variant="danger" className="btn-sm mx-2" >
                                 <FaTrash /> Excluir
                             </Button>
-                            <ModalExcluir showModal={this.props.showModal} handleConfirm={this.props.handleConfirm} handleCancel={this.props.handleCancel} propsOpen={this.props.propsOpen} handleDeleteTask={this.props.handleDeleteTask} />
-
+                            <ModalExcluir 
+                                handleOpenCloseModal={this.props.handleOpenCloseModal} 
+                                showModal={this.props.showModal} 
+                                handleConfirm={this.props.handleConfirm}                                                                                                 
+                                task={task} />
                             </Col>
                         </Row>
                     </ListGroup.Item>
