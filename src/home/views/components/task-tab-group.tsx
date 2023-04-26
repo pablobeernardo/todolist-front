@@ -10,6 +10,10 @@ interface Props {
     handleConfirm: any;
     showModal: boolean;
     handleOpenCloseModal: any
+    handleUpdateTask: any;
+    handleChange: any;
+    handleOpenCloseEdit: any;
+    showModalEdit: boolean;
 
 }
 
@@ -19,6 +23,10 @@ export default class TaskTabGroup extends React.Component<Props>{
             <Tabs defaultActiveKey="new" id="uncontrolled-tab-example" className="mb-3 ">
                 <Tab eventKey="new" title="Lista de Tarefas">
                     <TaskComponent
+                        showModalEdit={this.props.showModalEdit}
+                        handleOpenCloseEdit={this.props.handleOpenCloseEdit}
+                        handleChange={this.props.handleChange}
+                        handleUpdateTask={this.props.handleUpdateTask}
                         handleOpenCloseModal={this.props.handleOpenCloseModal}
                         showModal={this.props.showModal}
                         handleConfirm={this.props.handleConfirm}

@@ -2,7 +2,7 @@ import React from "react";
 import { ListGroup, Row, Col, FormCheck, Button } from "react-bootstrap";
 import ButtonEditTask from "./button-edit";
 import TaskModel from "../../../shared/models/task-model";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaEdit } from "react-icons/fa";
 import ModalExcluir from "./button-excluir";
 
 
@@ -11,6 +11,10 @@ interface Props {
   handleConfirm: any;
   showModal: boolean;
   handleOpenCloseModal: any;
+  handleUpdateTask: any;
+  handleChange: any;
+  handleOpenCloseEdit: any;
+  showModalEdit: boolean;
 }
 
 interface State {
@@ -59,6 +63,13 @@ export default class TaskComponent extends React.Component<Props, State> {
 
     return (
       <>
+        <ButtonEditTask
+          showModalEdit={this.props.showModalEdit}
+          handleOpenCloseEdit={this.props.handleOpenCloseEdit}
+          handleChange={this.props.handleChange}
+          task={this.state.task}
+          handleConfirm={this.props.handleConfirm}
+          handleUpdateTask={this.props.handleUpdateTask} />
         <ModalExcluir
           handleOpenCloseModal={this.props.handleOpenCloseModal}
           showModal={this.props.showModal}
@@ -81,11 +92,17 @@ export default class TaskComponent extends React.Component<Props, State> {
                   <span>{task.taskDescription}</span>
                 </Col>
                 <Col className="itemRight">
-                  <ButtonEditTask />
+                  <Button variant="primary" className="btn-sm mx-2" onClick={() => {
+                    this.setState({ task: task });
+                    this.props.handleOpenCloseEdit();
+                  }}>
+                    <FaEdit /> Editar
+                </Button>
+
                   <Button onClick={() => {
-                    this.setState({task: task});
+                    this.setState({ task: task });
                     this.props.handleOpenCloseModal();
-                    }
+                  }
                   } variant="danger" className="btn-sm mx-2" >
                     <FaTrash /> Excluir
                 </Button>

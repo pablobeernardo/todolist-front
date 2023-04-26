@@ -2,31 +2,24 @@ import { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { FaEdit } from 'react-icons/fa';
 import React from 'react';
+import TaskModel from '../../../shared/models/task-model';
 
-export default function ButtonEditTask() {
-  const [showModal, setShowModal] = useState(false);
+interface Props{
+  handleUpdateTask: any;
+  handleConfirm: any;
+  task: TaskModel;
+  handleChange: any;
+  handleOpenCloseEdit: any;
+  showModalEdit: boolean;
+}
 
-  const handleEditClick = () => {
-    setShowModal(true);
-  };
 
-  const handleModalClose = () => {
-    setShowModal(false);
-  };
-
-  const handleConfirmEdit = () => {
-    // aqui você pode colocar a lógica para editar a tarefa
-    console.log('Tarefa editada');
-    setShowModal(false);
-  };
-
+export default function ButtonEditTask(props:Props) {
+  
   return (
     <>
-      <Button variant="primary" className="btn-sm mx-2" onClick={handleEditClick}>
-        <FaEdit /> Editar 
-      </Button>
 
-      <Modal show={showModal} onHide={handleModalClose}>
+      <Modal show={props.showModalEdit} onHide={props.handleOpenCloseEdit}>
         <Modal.Header closeButton>
           <Modal.Title>Editar Tarefa</Modal.Title>
         </Modal.Header>
@@ -34,17 +27,17 @@ export default function ButtonEditTask() {
           <Form>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Digite sua nova tarefa</Form.Label>
-                <Form.Control
+                <Form.Control id="task" name="task" onChange={props.handleChange}
                   autoFocus
                 />
               </Form.Group>
             </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleModalClose}>
+          <Button variant="secondary" onClick={props.handleOpenCloseEdit}>
             Cancelar
           </Button>
-          <Button variant="primary" onClick={handleConfirmEdit}>
+          <Button variant="primary"onClick={() => props.handleConfirm(props.task, 'update')}>
             Salvar
           </Button>
         </Modal.Footer>

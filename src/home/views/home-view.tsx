@@ -16,6 +16,9 @@ interface Props{
     handleConfirm: any;    
     showModal: boolean;
     handleOpenCloseModal: any;
+    handleUpdateTask: any;
+    handleOpenCloseEdit: any;
+    showModalEdit:boolean;
 }
 
 export default class HomeView extends React.Component<Props >{
@@ -31,6 +34,10 @@ export default class HomeView extends React.Component<Props >{
                         <Card.Body className="py-5 px-5">                                    
                             <TaskFormComponent  handleSubmit={this.props.handleSubmit} handleChange={this.props.handleChange} />                                    
                             <TaskTabGroup 
+                                showModalEdit={this.props.showModalEdit}
+                                handleOpenCloseEdit={this.props.handleOpenCloseEdit}
+                                handleChange={this.props.handleChange}
+                                handleUpdateTask={this.props.handleUpdateTask}
                                 handleOpenCloseModal={this.props.handleOpenCloseModal} 
                                 showModal={this.props.showModal}                                                                 
                                 handleConfirm={this.props.handleConfirm}                                 
